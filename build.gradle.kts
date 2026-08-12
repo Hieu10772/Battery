@@ -16,8 +16,10 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
-    mappings(loom.officialMojangMappings())
+    minecraft("com.mojang:minecraft:1.21.11")
+    
+    mappings("net.fabricmc:yarn:1.21.11+build.1:v2")
+    
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
 }
