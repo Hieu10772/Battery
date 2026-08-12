@@ -35,8 +35,8 @@ public class WorkloadController {
 
         if (client.player != null) {
             this.isPlayerStationary = client.player.getVelocity().lengthSquared() < 0.001 
-                    && client.player.prevYaw == client.player.getYaw() 
-                    && client.player.prevPitch == client.player.getPitch();
+                    && client.player.lastRenderYaw == client.player.getYaw() 
+                    && client.player.lastRenderPitch == client.player.getPitch();
         } else {
             this.isPlayerStationary = false;
         }
