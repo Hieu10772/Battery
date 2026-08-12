@@ -1,27 +1,27 @@
 package com.battery.render;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.math.Vec3d;
 
 public class RedundantWorkDetector {
-    private Vec3 lastPlayerPos = Vec3.ZERO;
+    private Vec3d lastPlayerPos = Vec3d.ZERO;
     private float lastYaw = 0.0f;
     private float lastPitch = 0.0f;
     private boolean stateUnchanged = false;
     private int unchangedTicks = 0;
 
-    public void tick(Minecraft client) {
+    public void tick(MinecraftClient client) {
         if (client.player == null) {
             stateUnchanged = false;
             unchangedTicks = 0;
             return;
         }
 
-        Vec3 currentPos = client.player.position();
-        float currentYaw = client.player.getYRot();
-        float currentPitch = client.player.getXRot();
+        Vec3d currentPos = client.player.getPos();
+        float currentYaw = client.player.getYaw();
+        float currentPitch = client.player.getPitch();
 
-        if (currentPos.distanceToSqr(lastPlayerPos) < 0.0001 &&
+        if (currentPos.squaredDistanceTo(lastPlayerPos) < 0.0001 &&
             Math.abs(currentYaw - lastYaw) < 0.01f &&
             Math.abs(currentPitch - lastPitch) < 0.01f) {
             unchangedTicks++;
