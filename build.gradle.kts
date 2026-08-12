@@ -4,10 +4,10 @@ plugins {
 }
 
 version = project.property("mod_version") as String
-group = project.property("maven_group") as String
+group = project.property("mod_group") as String
 
 base {
-    archivesName.set(project.property("archives_base_name") as String)
+    archivesName.set(project.property("mod_id") as String)
 }
 
 repositories {
