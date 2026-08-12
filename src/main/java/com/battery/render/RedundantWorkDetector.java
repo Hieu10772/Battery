@@ -17,7 +17,7 @@ public class RedundantWorkDetector {
             return;
         }
 
-        Vec3d currentPos = client.player.getPos();
+        Vec3d currentPos = new Vec3d(client.player.getX(), client.player.getY(), client.player.getZ());
         float currentYaw = client.player.getYaw();
         float currentPitch = client.player.getPitch();
 
