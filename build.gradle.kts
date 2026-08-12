@@ -32,7 +32,7 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
-jar {
+tasks.jar {
     from("LICENSE") {
         rename { "${it}_${project.base.archivesName.get()}" }
     }
