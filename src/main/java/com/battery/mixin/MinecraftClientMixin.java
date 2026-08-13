@@ -15,12 +15,12 @@ public class MinecraftClientMixin {
     @Unique
     private long battery$frameStartTime = 0;
 
-    @Inject(method = "render", at = @At("HEAD"))
+    @Inject(method = "render", at = @At("HEAD"), require = 0)
     private void battery$onRenderStart(boolean tick, CallbackInfo ci) {
         this.battery$frameStartTime = System.nanoTime();
     }
 
-    @Inject(method = "render", at = @At("RETURN"))
+    @Inject(method = "render", at = @At("RETURN"), require = 0)
     private void battery$onRenderEnd(boolean tick, CallbackInfo ci) {
         long duration = System.nanoTime() - this.battery$frameStartTime;
         if (Battery.getInstance() != null) {
