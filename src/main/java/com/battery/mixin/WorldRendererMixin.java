@@ -15,7 +15,6 @@ public class WorldRendererMixin {
     private void battery$onWorldRendererTick(CallbackInfo ci) {
         if (Battery.getInstance() != null && Battery.getInstance().getPowerManager() != null) {
             VisualUpdateOptimizer optimizer = Battery.getInstance().getPowerManager().getVisualUpdateOptimizer();
-            // Điều chỉnh theo khoảng cách và nhiệt độ
         }
     }
 }
