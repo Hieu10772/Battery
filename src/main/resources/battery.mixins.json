@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.battery.mixin",
   "compatibilityLevel": "JAVA_21",
-  "priority": 1500,
+  "priority": 500,
   "client": [
     "MinecraftClientMixin",
     "GameRendererMixin",
@@ -10,6 +10,6 @@
     "ParticleManagerMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   }
 }
