@@ -15,7 +15,6 @@ public class GameRendererMixin {
     private void battery$onRenderTail(RenderTickCounter tickCounter, boolean renderLevel, CallbackInfo ci) {
         if (Battery.getInstance() != null && Battery.getInstance().getPowerManager() != null) {
             if (Battery.getInstance().getPowerManager().getRedundantWorkDetector().isStateUnchanged()) {
-                // Logic kiểm tra render thừa
             }
         }
     }
