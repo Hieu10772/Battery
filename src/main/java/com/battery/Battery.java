@@ -8,6 +8,7 @@ import com.battery.thermal.ThermalMonitor;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,10 @@ public class Battery implements ClientModInitializer {
         this.environmentDetector = new MobileEnvironmentDetector();
         this.thermalMonitor = new ThermalMonitor();
         this.powerManager = new PowerManager(config, thermalMonitor, environmentDetector);
+
+        if (FabricLoader.getInstance().isModLoaded("distanthorizons")) {
+            LOGGER.warn("[Battery] Distant Horizons detected! Adjusting aggressive render throttling to prevent native crashes.");
+        }
 
         this.environmentDetector.logEnvironmentDetails();
 
